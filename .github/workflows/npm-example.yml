@@ -39,25 +39,25 @@ jobs:
           jf rt ping
       # Configure JFrog CLI for NPM 
       - run: |
-          jf npmc --repo-deploy=ghjfdemo-ghjf-npm-virt --repo-resolve=ghjfdemo-ghjf-npm-remote
+          jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # NPM Install using the CLI  
       - run: |
-          jf npm install --build-name=ghdemo-npm-build --build-number=1.0.${{github.run_number}}
+          jf npm install --build-name=guy-demo-npm-build --build-number=1.0.${{github.run_number}}
       # Add GitHub Data to BuildInfo 
       - run: |
-          jf rt build-add-git ghdemo-npm-build 1.0.${{github.run_number}}
+          jf rt build-add-git guy-demo-npm-build 1.0.${{github.run_number}}
       # Collect all Environmental information for NPM Build 
       - run: |
-          jf rt build-collect-env ghdemo-npm-build 1.0.${{github.run_number}}
+          jf rt build-collect-env guy-demo-npm-build 1.0.${{github.run_number}}
       # Using NPM Publish to uplaod the NPM Build 
       - run: |
-          jf npm publish --build-name=ghdemo-npm-build --build-number=1.0.${{github.run_number}}
+          jf npm publish --build-name=guy-demo-npm-build --build-number=1.0.${{github.run_number}}
       # Publish the BuildInfo into Artifactory 
       - run: |
-          jf rt build-publish ghdemo-npm-build 1.0.${{github.run_number}}
+          jf rt build-publish guy-demo-npm-build 1.0.${{github.run_number}}
       # Scan the NPM Build with Xray 
       - run: |
-           jf build-scan ghdemo-npm-build 1.0.${{github.run_number}}
+           jf build-scan guy-demo-npm-build 1.0.${{github.run_number}}
       # Promote the Build from Dev to Production 
       - run: |
-          jf rt build-promote ghdemo-npm-build 1.0.${{github.run_number}} ghjfdemo-ghjf-npm-prod-local  --status=production
+          jf rt build-promote guy-demo-npm-build 1.0.${{github.run_number}} guy-npm-prod --status=production
