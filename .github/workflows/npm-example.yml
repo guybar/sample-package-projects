@@ -33,6 +33,7 @@ jobs:
       
       # This command adds a new server configuration to the JFrog CLI   
       - run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN: $ACTIONS_ID_TOKEN_REQUEST_TOKEN"
           jf -v
       # Ping the JFrog Platfrom instnace 
       - run: |
