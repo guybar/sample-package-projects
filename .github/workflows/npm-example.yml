@@ -41,7 +41,13 @@ jobs:
       # Configure JFrog CLI for NPM 
       - run: |
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
-      # NPM Install using the CLI  
+      # NPM Install using the CLI
+      - run: |
+          ls
+          rm -rf node_modules
+          npm cache clean --force
+      - run: |
+          npm install  
       - run: |
           ls
           rm -rf node_modules
