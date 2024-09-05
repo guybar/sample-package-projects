@@ -68,7 +68,7 @@ jobs:
           jf rt build-publish guy-demo-npm-build 1.0.${{github.run_number}}
       # Scan the NPM Build with Xray 
       - run: |
-           jf build-scan --project ${{ vars.JF_PROJECT_KEY }} guy-demo-npm-build 1.0.${{github.run_number}}
+           jf build-scan guy-demo-npm-build 1.0.${{github.run_number}}
       # Promote the Build from Dev to Production 
       - run: |
           jf rt build-promote guy-demo-npm-build 1.0.${{github.run_number}} guy-npm-release --status=production
