@@ -73,7 +73,7 @@ jobs:
      #     jf docker scan $DOCKER_IMAGE_NAME
       # Push image to Artifactory
       - run: |
-          jf docker push --threads 10 $DOCKER_IMAGE_NAME
+          jf docker push $DOCKER_IMAGE_NAME --threads 10
       # Publish the BuildInfo into Artifactory 
       - run: |
           jf rt build-publish guy-demo-npm-build 1.0.${{github.run_number}}
