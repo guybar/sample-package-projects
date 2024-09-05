@@ -42,8 +42,10 @@ jobs:
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # NPM Install using the CLI  
       - run: |
+          ls
           rm -rf node_modules
           npm cache clean --force
+      - run: |
           jf npm install --build-name=guy-demo-npm-build --build-number=1.0.${{github.run_number}}
       # Add GitHub Data to BuildInfo 
       - run: |
