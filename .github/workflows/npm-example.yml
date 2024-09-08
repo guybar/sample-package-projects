@@ -1,4 +1,4 @@
-name: Push NPM Build to Artifactory
+name: guy-demo-npm-build
 on: workflow_dispatch
 permissions:
   actions: read # for detecting the Github Actions environment.
