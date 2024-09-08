@@ -84,7 +84,7 @@ jobs:
       # guy-demo-npm-build 1.0.${{github.run_number}}
       # Scan the NPM Build with Xray 
       - run: |
-           jf build-scan guy-demo-npm-build 1.0.${{github.run_number}}
+           jf build-scan guy-demo-npm-build ${{github.run_number}}
       # Promote the Build from Dev to Production 
       - run: |
          jf rt build-promote --status=production
