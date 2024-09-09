@@ -44,13 +44,13 @@ jobs:
       - run: |
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # NPM Install using the CLI
-      - run: |
+      #- run: |
       #    ls
       #    rm -rf node_modules
       #    npm cache clean --force
-      - run: |
+      #- run: |
       #    npm install  
-      - run: |
+      #- run: |
       #    ls
       #    rm -rf node_modules
       #    npm cache clean --force
