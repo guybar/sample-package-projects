@@ -12,7 +12,6 @@ jobs:
     env:
       JF_PROJECT: ${{ vars.JF_PROJECT_KEY }}
       JF_URL: https://${{ vars.JF_URL }}/
-      # JFROG_CLI_LOG_LEVEL: DEBUG
       DOCKER_IMAGE_NAME: ${{ vars.JF_URL }}/guy-docker-dev/npm-sample-docker:1.0.${{github.run_number}}
     defaults:
       run:
