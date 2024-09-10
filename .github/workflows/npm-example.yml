@@ -55,6 +55,7 @@ jobs:
       #    rm -rf node_modules
       #    npm cache clean --force
       - run: |
+          npm install
           jf npm install 
       # Add GitHub Data to BuildInfo 
       - run: |
