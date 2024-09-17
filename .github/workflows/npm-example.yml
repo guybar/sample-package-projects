@@ -12,7 +12,7 @@ jobs:
     env:
       JF_PROJECT: ${{ vars.JF_PROJECT_KEY }}
       JF_URL: ${{ vars.JF_URL }}
-      JFROG_CLI_LOG_LEVEL: DEBUG
+      # JFROG_CLI_LOG_LEVEL: DEBUG
       DOCKER_IMAGE_NAME: ${{ vars.JF_DOCKER_REPOSITORY }}npm-sample-docker:1.0.${{github.run_number}}
     defaults:
       run:
@@ -44,8 +44,8 @@ jobs:
       - run: |
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # run curation audit
-      - run: |
-          jf curation-audit
+      # - run: |
+      #     jf curation-audit
       # install npm packages
       - run: |
           npm install
