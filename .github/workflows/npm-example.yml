@@ -12,7 +12,7 @@ jobs:
     env:
       JF_PROJECT: ${{ vars.JF_PROJECT_KEY }}
       JF_URL: ${{ vars.JF_URL }}
-      # JFROG_CLI_LOG_LEVEL: DEBUG
+      JFROG_CLI_LOG_LEVEL: DEBUG
       DOCKER_IMAGE_NAME: ${{ vars.JF_DOCKER_REPOSITORY }}npm-sample-docker:1.0.${{github.run_number}}
     defaults:
       run:
