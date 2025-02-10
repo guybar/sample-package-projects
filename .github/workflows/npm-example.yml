@@ -47,8 +47,8 @@ jobs:
             --repo-deploy=pip-virtual
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # run curation audit
-      # - run: |
-      #     jf curation-audit
+      - run: |
+          jf curation-audit
       # install npm packages
       - run: |
           npm install
