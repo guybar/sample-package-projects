@@ -35,5 +35,5 @@ jobs:
 
       # install npm packages
       - run: |
-          npm install
+          jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
           jf npm install 
