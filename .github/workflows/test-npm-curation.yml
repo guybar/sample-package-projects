@@ -1,0 +1,39 @@
+name: guy-demo-npm-build-curation
+on: workflow_dispatch
+permissions:
+  actions: read # for detecting the Github Actions environment.
+  id-token: write # for creating OIDC tokens for signing.
+  packages: write # for uploading attestations.
+  contents: read
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JF_PROJECT: ${{ vars.JF_PROJECT_KEY }}
+      JF_URL: ${{ vars.JF_URL }}
+      # JFROG_CLI_LOG_LEVEL: DEBUG
+      DOCKER_IMAGE_NAME: ${{ vars.JF_DOCKER_REPOSITORY }}npm-sample-docker:1.0.${{github.run_number}}
+    defaults:
+      run:
+        working-directory: ./npm/
+
+    steps:
+      # This action checks out the code from the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+          
+      # Download the JFrog CLI and configure using JFrog Project and OIDC provider 
+      - uses: jfrog/setup-jfrog-cli@v4
+        name: Setup JFrog CLI
+        id: setup-cli
+        env:
+          JF_URL: ${{ vars.JF_URL }}
+          JF_PROJECT: ${{ vars.JF_PROJECT_KEY }}
+        with:
+            oidc-provider-name: guy-github
+
+      # install npm packages
+      - run: |
+          npm install
+          jf npm install 
