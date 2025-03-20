@@ -21,7 +21,6 @@
     "protobufjs": "^6.11.0",
     "pug": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
-    "cors": "^2.8.5",
     "mongoose": "^5.7.7",
     "nodemailer": "^6.3.1",
     "url-slug": "^2.2.0",
