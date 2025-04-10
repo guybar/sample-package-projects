@@ -48,6 +48,7 @@ jobs:
       #     jf curation-audit
       # install npm packages
       - run: |
+          npm install
           jf npm install 
       # Add GitHub Data to BuildInfo 
       # - run: |
