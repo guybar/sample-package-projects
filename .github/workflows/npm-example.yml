@@ -35,48 +35,44 @@ jobs:
             version: 2.69.0
       
       # This command adds a new server configuration to the JFrog CLI   
-      - run: |
-          jf -v
+      # - run: |
+      #     jf -v
       # Ping the JFrog Platfrom instnace 
-      - run: |
-          jf rt ping
+      # - run: |
+      #     jf rt ping
       # Configure JFrog CLI for NPM 
       - run: |
-          jf pip-config \
-            --repo-resolve=pip-virtual \
-            --repo-deploy=pip-virtual
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       # run curation audit
-      - run: |
-          jf curation-audit
+      # - run: |
+      #     jf curation-audit
       # install npm packages
       - run: |
-          npm install
           jf npm install 
       # Add GitHub Data to BuildInfo 
-      - run: |
-          jf rt build-add-git 
+      # - run: |
+      #     jf rt build-add-git 
       # Collect all Environmental information for NPM Build 
-      - run: |
-          jf rt build-collect-env 
+      # - run: |
+      #     jf rt build-collect-env 
       # Using NPM Publish to uplaod the NPM Build 
       - run: |
           jf npm publish 
       # Build Docker image
-      - run: |
-          docker build -t $DOCKER_IMAGE_NAME .
+      # - run: |
+      #     docker build -t $DOCKER_IMAGE_NAME .
       # scan docker image
       # - run: |
       #     jf docker scan $DOCKER_IMAGE_NAME
       # Push image to Artifactory
-      - run: |
-          jf docker push $DOCKER_IMAGE_NAME
+      # - run: |
+      #     jf docker push $DOCKER_IMAGE_NAME
       # Publish the BuildInfo into Artifactory 
-      - run: |
-          jf rt build-publish 
+      # - run: |
+      #     jf rt build-publish 
       # Scan the NPM Build with Xray 
       - run: |
            jf build-scan 
       # Promote the Build from Dev to Production 
-      - run: |
-         jf rt build-promote --status=production
+      # - run: |
+      #    jf rt build-promote --status=production
