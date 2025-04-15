@@ -37,6 +37,9 @@ jobs:
       - run: |
           jf npmc --repo-deploy=guy-npm-dev --repo-resolve=guy-npm-dev
       - run: |
+          jf curation-audit
+      # install npm packages
+      - run: |
           npm install
           jf npm install 
       # Using NPM Publish to uplaod the NPM Build 
